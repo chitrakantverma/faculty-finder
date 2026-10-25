@@ -158,7 +158,8 @@ const App: React.FC = () => {
       return <LoadingSpinner />;
     }
     
-    // Keep already received results visible if a later stream chunk fails.
+    // Keep partial results, but do not mistake a failed request for zero matches.
+    if (error && !professors?.length) return null;
     
     // Display results as they stream in.
     if (professors && professors.length > 0) {
