@@ -1,5 +1,5 @@
-
 {
-  "name": "Professor Outreach Assistant",
-  "description": "An intelligent assistant to find and fetch details of professors at selected IITs and NITs based on institute, department, and research keywords for outreach automation."
+  "name": "Faculty Finder",
+  "description": "Shortlist research mentors by institute, department and research interest.",
+  "requestFramePermissions": []
 }
