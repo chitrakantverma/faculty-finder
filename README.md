@@ -100,3 +100,10 @@ Live Gemini search and factual result accuracy have not been validated in this m
 - Remove legacy duplicate source files in a separate cleanup once downstream references are checked.
 
 This is a student portfolio prototype. It does not send emails or confirm internship availability.
+
+
+## Preview
+
+Sample shortlist with a fictional profile:
+
+<img width="1280" height="796" alt="clipboard" src="https://github.com/user-attachments/assets/60b1eaf2-4024-47bf-99c5-22c26ba9ef3b" />
