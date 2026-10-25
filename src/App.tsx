@@ -85,7 +85,7 @@ const App: React.FC = () => {
         };
 
         doc.setFontSize(22).setFont('helvetica', 'bold');
-        yPos = addText('Professor Outreach List', margin, yPos);
+        yPos = addText('Faculty Finder — Research Shortlist', margin, yPos);
         yPos += 10;
         
         professors.forEach((prof, index) => {
@@ -144,7 +144,7 @@ const App: React.FC = () => {
             yPos += 10;
         });
 
-        doc.save("professor_outreach_list.pdf");
+        doc.save("faculty-finder-shortlist.pdf");
     } catch (e: any) {
         console.error("Failed to generate PDF:", e);
         setError("Could not generate the PDF. An unexpected error occurred. Please try again.");
@@ -158,9 +158,7 @@ const App: React.FC = () => {
       return <LoadingSpinner />;
     }
     
-    if (error) {
-      return <ErrorDisplay message={error} />;
-    }
+    // Keep already received results visible if a later stream chunk fails.
     
     // Display results as they stream in.
     if (professors && professors.length > 0) {
@@ -187,6 +185,14 @@ const App: React.FC = () => {
       <Header onExport={handleDownloadPDF} isExportDisabled={!professors || professors.length === 0} />
       <main className="container mx-auto p-4 md:p-8">
         <SearchForm onSearch={handleSearch} isLoading={isLoading} />
+        <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-gray-400">
+          <button type="button" disabled={isLoading} className="rounded-md border border-gray-700 px-3 py-2 text-sky-300 hover:border-sky-400 disabled:opacity-40" onClick={() => {
+            setError(null);
+            setProfessors([{ Name: 'Dr. Example Mentor', Designation: 'Example faculty profile', Institute: 'Demo Institute (fictional)', Email: null, LinkedIn: null, 'Research Interests': 'Machine learning and data visualization', 'Internship/Outreach': null, 'Institute Website': 'Link not working', Summary: 'Fictional sample showing the shortlist layout and PDF export. This is not a real person or a live search result.' }]);
+          }}>Load sample shortlist</button>
+          <span>AI-generated suggestions. Check faculty details on official institute pages before outreach.</span>
+        </div>
+        {error && <div className="mt-6" role="alert"><ErrorDisplay message={error} /></div>}
         <div className="mt-8">
           {renderContent()}
         </div>
