@@ -16,7 +16,7 @@ The useful engineering work is in handling network boundaries, making failure st
 
 ## Validation
 
-Frontend production build and TypeScript check passed. Six regression tests exercise the stream client using mocked HTTP responses. The live Gemini backend and accuracy of generated faculty details were not validated in this pass.
+Frontend production build and TypeScript check passed. Six regression tests exercise the stream client using mocked HTTP responses. The deployed sample and PDF export were checked. A real search request reached the backend and returned a missing server API key error. Successful Gemini generation and factual accuracy remain unvalidated.
 
 ## Next step
 
